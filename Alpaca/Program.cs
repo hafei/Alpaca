@@ -14,7 +14,9 @@ namespace Alpaca
     {
         public static void Main(string[] args)
         {
+            //
             CreateWebHostBuilder(args).Build().Run();
+            new WebHostBuilder();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

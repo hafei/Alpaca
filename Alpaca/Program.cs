@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -14,9 +15,10 @@ namespace Alpaca
     {
         public static void Main(string[] args)
         {
-            //
+            //创建Web服务器
             CreateWebHostBuilder(args).Build().Run();
-            new WebHostBuilder();
+            //new WebHostBuilder();
+
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

@@ -5,13 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Alpaca.Models;
+using Microsoft.Extensions.Logging;
 
 namespace Alpaca.Controllers
 {
     public class HomeController : Controller
     {
+        private ILoggerFactory loggerFactory;
+        public HomeController(ILoggerFactory loggerFactory)
+        {
+            this.loggerFactory = loggerFactory;
+        }
+
         public IActionResult Index()
         {
+            var url = Url.Action("About", "Home");
+            var logger = loggerFactory.CreateLogger(nameof(HomeController));
+            logger.LogInformation(url);
             return View();
         }
 

@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27729.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alpaca", "Alpaca\Alpaca.csproj", "{4B3F202D-174C-4A64-82BD-B7502EB5C3E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpaca.Api", "Alpaca.Api\Alpaca.Api.csproj", "{F9C19147-0BF8-4433-ACF3-189FFE019E48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alpaca.Api", "Alpaca.Api\Alpaca.Api.csproj", "{F9C19147-0BF8-4433-ACF3-189FFE019E48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allitbooks", "Allitbooks\Allitbooks.csproj", "{F5FC42DF-58FE-4670-B0FC-2B7DCEB5B138}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F9C19147-0BF8-4433-ACF3-189FFE019E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9C19147-0BF8-4433-ACF3-189FFE019E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9C19147-0BF8-4433-ACF3-189FFE019E48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5FC42DF-58FE-4670-B0FC-2B7DCEB5B138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5FC42DF-58FE-4670-B0FC-2B7DCEB5B138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5FC42DF-58FE-4670-B0FC-2B7DCEB5B138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5FC42DF-58FE-4670-B0FC-2B7DCEB5B138}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

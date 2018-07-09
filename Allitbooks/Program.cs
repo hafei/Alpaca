@@ -37,6 +37,7 @@ namespace Allitbooks
             //logger.LogInformation(html);
             doc.LoadHtml(html);
 
+            //XPath 语法
             HtmlNodeCollection categoryNodes = doc.DocumentNode.SelectNodes("//h3/a[@class='titlelnk']");
             IEnumerable<string> category = categoryNodes.Select(x=>x.Attributes["href"].Value + "  " + x.InnerText).ToList();
 

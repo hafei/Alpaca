@@ -47,8 +47,6 @@ namespace Allitbooks
             }
 
             Console.ReadLine();
-
-            //todo  log
         }
     }
 

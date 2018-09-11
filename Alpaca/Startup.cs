@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,23 +30,39 @@ namespace Alpaca
         public IConfiguration Configuration { get; }
 
         /// <summary>
-        /// 定义应用所使用的服务
+        /// 定义应用所使用的服务 使用第三方IOC框架
         /// </summary>
         /// <param name="services"></param>
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
             services.AddLogging();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            var containerBuilder = new ContainerBuilder();
+            //containerBuilder.RegisterModule<DefaultModule>();
+            containerBuilder.Populate(services);
+            var container = containerBuilder.Build();
+            return new AutofacServiceProvider(container);
         }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        //public void ConfigureServices(IServiceCollection services)
+        //{
+        //    services.Configure<CookiePolicyOptions>(options =>
+        //    {
+        //        // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+        //        options.CheckConsentNeeded = context => true;
+        //        options.MinimumSameSitePolicy = SameSiteMode.None;
+        //    });
+
+        //    services.AddLogging();
+        //    services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        //}
 
         /// <summary>
         /// 定义请求管道中的中间件
@@ -53,7 +71,7 @@ namespace Alpaca
         /// <param name="env"></param>
         /// <param name="loggerFactory"></param>
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env ,ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             //loggerFactory.AddDebug();

@@ -32,6 +32,7 @@ namespace Alpaca
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)   //1. 创建IWebHostBuilder
+                .UseKestrel()
                 .UseStartup<Startup>();
     }
 }

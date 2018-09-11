@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alpaca.Api", "Alpaca.Api\Al
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allitbooks", "Allitbooks\Allitbooks.csproj", "{F5FC42DF-58FE-4670-B0FC-2B7DCEB5B138}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpaca.SignalR", "Alpaca.SignalR\Alpaca.SignalR.csproj", "{03702C5A-C27F-4D49-A744-14AD399380FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alpaca.SignalR", "Alpaca.SignalR\Alpaca.SignalR.csproj", "{03702C5A-C27F-4D49-A744-14AD399380FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F10F1730-A1E1-44F1-8997-4962AD81236C}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

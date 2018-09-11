@@ -21,6 +21,10 @@ namespace Alpaca
     /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// 构造函数初始化 加载配置文件
+        /// </summary>
+        /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -30,6 +34,7 @@ namespace Alpaca
         public IConfiguration Configuration { get; }
 
         /// <summary>
+        /// Web Server 配置
         /// 定义应用所使用的服务 使用第三方IOC框架
         /// </summary>
         /// <param name="services"></param>
@@ -40,9 +45,11 @@ namespace Alpaca
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            //配置日志
             services.AddLogging();
+            //配置MVC
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            //第三方依赖注入容器
             var containerBuilder = new ContainerBuilder();
             //containerBuilder.RegisterModule<DefaultModule>();
             containerBuilder.Populate(services);
@@ -65,7 +72,7 @@ namespace Alpaca
         //}
 
         /// <summary>
-        /// 定义请求管道中的中间件
+        /// 定义请求管道中的中间件 pipeline配置
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
